@@ -23,9 +23,9 @@ class Laporan extends CI_Controller
     function lap_order()
     {
         $bulan = $this->input->post('bln');
-        $x['jml'] = $this->m_laporan->get_total_trans_perbulan($bulan);
-        $x['data'] = $this->m_laporan->get_trans_perbulan($bulan);
-        $this->load->view('admin/laporan/v_lap_order', $x);
+        //$x['jml'] = $this->m_laporan->get_total_trans_perbulan($bulan);
+        $x['data'] = $this->m_laporan->staff_get_data_trans($bulan);
+        $this->load->view('staff/laporan/v_lap_order', $x);
     }
 
     function lap_data_pelanggan()

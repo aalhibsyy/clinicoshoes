@@ -20,37 +20,7 @@
                         </td>
                     </tr>
 
-                    <tr>
-                        <td style="text-align:center;vertical-align:middle">2</td>
-                        <td style="vertical-align:middle;">Laporan Transaksi</td>
-                        <td style="text-align:center;">
-                            <a class="btn btn-sm btn-default" href="<?php echo base_url() . 'admin/laporan/lap_data_transaksi' ?>" target="_blank"><span class="fa fa-print"></span> Print</a>
-                        </td>
-                    </tr>
 
-                    <tr>
-                        <td style="text-align:center;vertical-align:middle">3</td>
-                        <td style="vertical-align:middle;">Laporan Penjualan PerTanggal</td>
-                        <td style="text-align:center;">
-                            <a class="btn btn-sm btn-default" href="#lap_jual_pertanggal" data-toggle="modal"><span class="fa fa-print"></span> Print</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td style="text-align:center;vertical-align:middle">4</td>
-                        <td style="vertical-align:middle;">Laporan Penjualan PerBulan</td>
-                        <td style="text-align:center;">
-                            <a class="btn btn-sm btn-default" href="#lap_jual_perbulan" data-toggle="modal"><span class="fa fa-print"></span> Print</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td style="text-align:center;vertical-align:middle">5</td>
-                        <td style="vertical-align:middle;">Laporan Penjualan PerTahun</td>
-                        <td style="text-align:center;">
-                            <a class="btn btn-sm btn-default" href="#lap_jual_pertahun" data-toggle="modal"><span class="fa fa-print"></span> Print</a>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>

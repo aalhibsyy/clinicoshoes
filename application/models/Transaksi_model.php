@@ -175,4 +175,12 @@ class Transaksi_model extends CI_Model
         return $hsl;
     }
     //================ END Laporan ===================================================
+
+    //================ Rating ===================================================
+    // insert data
+    function in_rating($id_users, $testimoni, $rating)
+    {
+        $this->db->query("INSERT INTO rating (id_users,testimoni,rating) VALUES ('$id_users','$testimoni','$rating')");
+    }
+    //================ END Rating ===================================================
 }

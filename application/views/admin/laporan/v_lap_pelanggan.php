@@ -26,36 +26,40 @@
 
         </table>
 
-        <table border="0" align="center" style="width:900px;border:none;">
+        <table border="0" align="center" style="width:800px;border:none;">
             <tr>
                 <th style="text-align:left"></th>
             </tr>
         </table>
-        <table border="1" align="center" style="width:900px;margin-bottom:20px;">
+        <table border="1" align="center" style="width:800px;margin-bottom:20px;">
             <thead>
                 <tr>
                     <th style="width:50px;">No</th>
-                    <th>ID Pelanggan</th>
-                    <th>Nama Pelanggan</th>
-                    <th>Jenis Kelamin</th>
-                    <th>Telepon</th>
+                    <th>Nama</th>
+                    <th>No Telp</th>
+                    <th>Email</th>
                     <th>Alamat</th>
+                    <th>Total Transaksi</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 $no = 0;
                 foreach ($data->result_array() as $i) {
+                    $idpel = $i['idpel'];
+                    $query = $this->db->query("SELECT COUNT(id_transaksi) AS jml_trans FROM transaksi
+                    WHERE id_pelanggan=$idpel");
+                    $t = $query->row_array();
+
                     $no++;
                     ?>
                     <tr>
                         <td style="text-align:center;"><?php echo $no; ?></td>
-                        <td style="text-align:center;"><?php echo $i['id_pelanggan']; ?></td>
-                        <td style="text-align:center;"><?php echo $i['nama']; ?></td>
-                        <td style="text-align:center;"><?php echo $i['jenis_kelamin']; ?></td>
-                        <td style="text-align:center;"><?php echo $i['telepon']; ?></td>
-                        <td style="text-align:center;"><?php echo $i['alamat']; ?></td>
-
+                        <td style="text-align:left;"><?= $i['first_name']; ?> <?= $i['last_name']; ?></td>
+                        <td style="text-align:left;"><?php echo $i['phone']; ?></td>
+                        <td style="text-align:left;"><?php echo $i['email']; ?></td>
+                        <td style="text-align:left;"><?php echo $i['address']; ?></td>
+                        <td style="text-align:center;"><?php echo $t['jml_trans']; ?></td>
                     </tr>
                 <?php } ?>
             </tbody>

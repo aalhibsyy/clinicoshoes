@@ -19,7 +19,7 @@
             <tr>
                 <td colspan="2" style="width:800px;paddin-left:20px;">
                     <center>
-                        <h4>LAPORAN STOK BARANG PERKATEGORI</h4>
+                        <h4>LAPORAN ORDER</h4>
                     </center><br />
                 </td>
             </tr>
@@ -40,24 +40,32 @@
             foreach ($data->result_array() as $d) {
                 $nomor++;
                 $urut++;
-                if ($group == '-' || $group != $d['kategori_nama']) {
-                    $kat = $d['kategori_nama'];
-                    $query = $this->db->query("SELECT kategori_id,kategori_nama,barang_nama,SUM(barang_stok) AS tot_stok FROM tbl_kategori JOIN tbl_barang ON kategori_id=barang_kategori_id WHERE kategori_nama='$kat'");
+                if ($group == '-' || $group != $d['id_trans']) {
+                    $kat = $d['id_trans'];
+                    $query = $this->db->query("SELECT *, SUM(d_trans_qty) AS jml_trans FROM transaksi a 
+                    JOIN detail_transaksi b ON a.id_transaksi=b.id_transaksi 
+                    JOIN users c ON c.id=a.id_pelanggan
+                    WHERE b.id_transaksi='$kat'");
                     $t = $query->row_array();
-                    $tots = $t['tot_stok'];
+                    $tots = $t['jml_trans'];
+                    $nm_f = $t['first_name'];
+                    $nm_l = $t['last_name'];
+                    $phone = $t['phone'];
                     if ($group != '-')
                         echo "</table><br>";
-                    echo "<table align='center' width='900px;' border='1'>";
-                    echo "<tr><td colspan='2'><b>Kategori: $kat</b></td> <td style='text-align:center;'><b>Total Stok: $tots </b></td></tr>";
+                    echo "<table align='center' width='800px;' border='1'>";
+                    echo "<tr><td colspan='2'><b>ID Transaksi: $kat</b> &nbsp;&nbsp; <b>Nama : $nm_f $nm_l</b> &nbsp;&nbsp; <b>No Telp : $phone</b></td>
+                                <td style='text-align:center;'><b>Total Transaksi: $tots </b></td>
+                        </tr>";
                     echo "<tr style='background-color:#ccc;'>
     <td width='4%' align='center'>No</td>
-    <td width='60%' align='center'>Nama Barang</td>
-    <td width='30%' align='center'>Stok</td>
+    <td width='60%' align='center'>Servis</td>
+    <td width='30%' align='center'>Jumlah</td>
     
     </tr>";
                     $nomor = 1;
                 }
-                $group = $d['kategori_nama'];
+                $group = $d['id_trans'];
                 if ($urut == 500) {
                     $nomor = 0;
                     echo "<div class='pagebreak'> </div>";
@@ -66,47 +74,17 @@
                 ?>
                 <tr>
                     <td style="text-align:center;vertical-align:top;text-align:center;"><?php echo $nomor; ?></td>
-                    <td style="vertical-align:top;padding-left:5px;"><?php echo $d['barang_nama']; ?></td>
-                    <td style="vertical-align:top;text-align:center;"><?php echo $d['barang_stok']; ?></td>
+                    <td style="vertical-align:top;padding-left:5px;"><?php echo $d['d_trans_jasa_nama']; ?></td>
+                    <td style="vertical-align:top;text-align:center;"><?php echo $d['d_trans_qty']; ?></td>
                 </tr>
 
 
             <?php
-        }
-        ?>
+            }
+            ?>
         </table>
 
-        </table>
-        <table align="center" style="width:800px; border:none;margin-top:5px;margin-bottom:20px;">
-            <tr>
-                <td></td>
-        </table>
-        <table align="center" style="width:800px; border:none;margin-top:5px;margin-bottom:20px;">
-            <tr>
-                <td align="right">Tangsel, <?php echo date('d-M-Y') ?></td>
-            </tr>
-            <tr>
-                <td align="right"></td>
-            </tr>
 
-            <tr>
-                <td><br /><br /><br /><br /></td>
-            </tr>
-            <tr>
-                <td align="right">( <?php echo $this->session->userdata('nama'); ?> )</td>
-            </tr>
-            <tr>
-                <td align="center"></td>
-            </tr>
-        </table>
-        <table align="center" style="width:800px; border:none;margin-top:5px;margin-bottom:20px;">
-            <tr>
-                <th><br /><br /></th>
-            </tr>
-            <tr>
-                <th align="left"></th>
-            </tr>
-        </table>
     </div>
 </body>
 

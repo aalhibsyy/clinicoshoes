@@ -167,4 +167,16 @@ class Transaksi extends CI_Controller
 
     //======================= END GET PELANGGAN===============================
 
+
+    //======================= RATING ====================================
+    function in_rating()
+    {
+        $id_users = $this->ion_auth->get_user_id();
+        $testimoni = $this->input->post('testimoni');
+        $rating = $this->input->post('rating');
+        $this->mod_transaksi->in_rating($id_users, $testimoni, $rating);
+        redirect(site_url('admin/dashboard'));
+    }
+    //======================= END RATING ===============================
+
 }

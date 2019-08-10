@@ -40,7 +40,13 @@
 	<!-- Custom styles for this page -->
 	<link href="<?php echo base_url() ?>assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-
+	<!-- RAITING -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link href="<?php echo base_url() ?>assets/vendor/rating/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
+	<!--suppress JSUnresolvedLibraryURL -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="<?php echo base_url() ?>assets/vendor/rating/js/star-rating.js" type="text/javascript"></script>
+	<!-- END RAITING -->
 
 </head>
 
