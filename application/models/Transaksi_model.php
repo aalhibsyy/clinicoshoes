@@ -164,6 +164,11 @@ class Transaksi_model extends CI_Model
     //================ END Dashboard =======================================================
 
     //================ Laporan =======================================================
+    function get_staff_trans()
+    {
+        $hsl = $this->db->query("SELECT DISTINCT first_name, id FROM transaksi a JOIN users b ON a.id_staff=b.id");
+        return $hsl;
+    }
     function get_bulan_trans()
     {
         $hsl = $this->db->query("SELECT DISTINCT DATE_FORMAT(trans_tanggal,'%M %Y') AS bulan FROM transaksi");

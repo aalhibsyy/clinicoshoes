@@ -24,70 +24,20 @@
                         <td style="text-align:center;vertical-align:middle">2</td>
                         <td style="vertical-align:middle;">Laporan Transaksi</td>
                         <td style="text-align:center;">
-                            <a class="btn btn-sm btn-default" href="<?php echo base_url() . 'admin/laporan/lap_data_transaksi' ?>" target="_blank"><span class="fa fa-print"></span> Print</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td style="text-align:center;vertical-align:middle">3</td>
-                        <td style="vertical-align:middle;">Laporan Penjualan PerTanggal</td>
-                        <td style="text-align:center;">
-                            <a class="btn btn-sm btn-default" href="#lap_jual_pertanggal" data-toggle="modal"><span class="fa fa-print"></span> Print</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td style="text-align:center;vertical-align:middle">4</td>
-                        <td style="vertical-align:middle;">Laporan Penjualan PerBulan</td>
-                        <td style="text-align:center;">
                             <a class="btn btn-sm btn-default" href="#lap_jual_perbulan" data-toggle="modal"><span class="fa fa-print"></span> Print</a>
                         </td>
                     </tr>
-
                     <tr>
-                        <td style="text-align:center;vertical-align:middle">5</td>
-                        <td style="vertical-align:middle;">Laporan Penjualan PerTahun</td>
+                        <td style="text-align:center;vertical-align:middle">3</td>
+                        <td style="vertical-align:middle;">Laporan Transaksi Staff</td>
                         <td style="text-align:center;">
-                            <a class="btn btn-sm btn-default" href="#lap_jual_pertahun" data-toggle="modal"><span class="fa fa-print"></span> Print</a>
+                            <a class="btn btn-sm btn-default" href="#lap_staff" data-toggle="modal"><span class="fa fa-print"></span> Print</a>
                         </td>
                     </tr>
+
+
                 </tbody>
             </table>
-        </div>
-        <!-- ============ MODAL ADD =============== -->
-        <!-- ============ MODAL ADD =============== -->
-        <div class="modal fade" id="lap_jual_pertanggal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title" id="myModalLabel">Pilih Tanggal</h3>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    </div>
-                    <form class="form-horizontal" method="post" action="<?php echo base_url() . 'admin/laporan/lap_transaksi_pertanggal' ?>" target="_blank">
-                        <div class="modal-body">
-
-                            <div class="form-group">
-                                <label class="control-label col-xs-3">Tanggal</label>
-                                <div class="col-xs-9">
-                                    <div class='input-group date' id='datepicker' style="width:300px;">
-                                        <input type='date' name="tgl" class="form-control" value="" placeholder="Tanggal..." required />
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                        <div class="modal-footer">
-                            <button class="btn btn-info"><span class="fa fa-print"></span> Cetak</button>
-                            <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
 
         <!-- ============ MODAL ADD =============== -->
@@ -98,7 +48,7 @@
                         <h3 class="modal-title" id="myModalLabel">Pilih Bulan</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
-                    <form class="form-horizontal" method="post" action="<?php echo base_url() . 'admin/laporan/lap_transaksi_perbulan' ?>" target="_blank">
+                    <form class="form-horizontal" method="post" action="<?php echo base_url() . 'admin/laporan/lap_order' ?>" target="_blank">
                         <div class="modal-body">
 
                             <div class="form-group">
@@ -127,52 +77,29 @@
         </div>
 
         <!-- ============ MODAL ADD =============== -->
-        <div class="modal fade" id="lap_jual_pertahun" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+        <div class="modal fade" id="lap_staff" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title" id="myModalLabel">Pilih Tahun</h3>
+                        <h3 class="modal-title" id="myModalLabel">Pilih Staff</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
-                    <form class="form-horizontal" method="post" action="<?php echo base_url() . 'admin/laporan/lap_transaksi_pertahun' ?>" target="_blank">
+                    <form class="form-horizontal" method="post" action="<?php echo base_url() . 'admin/laporan/lap_staff' ?>" target="_blank">
                         <div class="modal-body">
 
                             <div class="form-group">
-                                <label class="control-label col-xs-3">Tahun</label>
+                                <label class="control-label col-xs-3">Staff</label>
                                 <div class="col-xs-9">
-                                    <select name="thn" class="selectpicker show-tick form-control" data-live-search="true" title="Pilih Tahun" data-width="80%" required />
-                                    <?php foreach ($trans_thn->result_array() as $t) {
-                                        $thn = $t['tahun'];
+                                    <select name="id_staff" class="selectpicker show-tick form-control" data-live-search="true" title="Pilih Staff" data-width="80%" required />
+                                    <?php foreach ($trans_staff->result_array() as $k) {
+                                        $id = $k['id'];
+                                        $name = $k['first_name'];
                                         ?>
-                                        <option><?php echo $thn; ?></option>
+                                        <option value="<?= $id ?>"><?php echo $name; ?></option>
                                     <?php } ?>
                                     </select>
                                 </div>
                             </div>
-
-
-                        </div>
-
-                        <div class="modal-footer">
-                            <button class="btn btn-info"><span class="fa fa-print"></span> Cetak</button>
-                            <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- ============ MODAL ADD =============== -->
-        <div class="modal fade" id="lap_laba_rugi" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title" id="myModalLabel">Pilih Bulan</h3>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    </div>
-                    <form class="form-horizontal" method="post" action="<?php echo base_url() . 'admin/laporan/lap_laba_rugi' ?>" target="_blank">
-                        <div class="modal-body">
-
                             <div class="form-group">
                                 <label class="control-label col-xs-3">Bulan</label>
                                 <div class="col-xs-9">
@@ -186,7 +113,6 @@
                                 </div>
                             </div>
 
-
                         </div>
 
                         <div class="modal-footer">
@@ -197,8 +123,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- ============ END MODAL ADD =============== -->
 
     </div>
 

@@ -29,7 +29,7 @@
 
       <div class="col-md-6 mb-4">
         <div class="service d-flex h-100">
-          <div class="service-number mr-4"><span class="icon-glass"></span></div>
+          <div class="service-number mr-4"><img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img18.jpg"></div>
           <div class="service-about">
             <h3>PAKET EXPRESS (2 Days)</h3>
             <p>Deep Clean semua area sepatu (upper sole, mid sole, outsole, shoe lace, insole) HANYA 2 hari selesai.</p>
@@ -39,7 +39,7 @@
 
       <div class="col-md-6 mb-4">
         <div class="service d-flex h-100">
-          <div class="service-number mr-4"><span class="icon-video-camera"></span></div>
+          <div class="service-number mr-4"> <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img13.jpg"></div>
           <div class="service-about">
             <h3>Deep Clean Canvas / Sneakers</h3>
             <p>Paket ini pencucian sepatu pada seluruh bagian, tidak termasuk perawatan suede & leather.</p>
@@ -49,7 +49,7 @@
 
       <div class="col-md-6 mb-4">
         <div class="service d-flex h-100">
-          <div class="service-number mr-4"><span class="icon-fire"></span></div>
+          <div class="service-number mr-4"><img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img16.jpg"></div>
           <div class="service-about">
             <h3>Deep Clean Leather Treatment</h3>
             <p>Paket ini pencucian sepatu pada seluruh bagian, termasuk leather treatment.</p>
@@ -59,7 +59,7 @@
 
       <div class="col-md-6 mb-4">
         <div class="service d-flex h-100">
-          <div class="service-number mr-4"><span class="icon-magnet"></span></div>
+          <div class="service-number mr-4"><img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img17.jpg"></div>
           <div class="service-about">
             <h3>Deep Clean Suede / Nu Buck</h3>
             <p>Paket ini pencucian sepatu pada seluruh bagian, termasuk suede / nu buck treatment.</p>
@@ -69,7 +69,7 @@
 
       <div class="col-md-6 mb-4">
         <div class="service d-flex h-100">
-          <div class="service-number mr-4"><span class="icon-magnet"></span></div>
+          <div class="service-number mr-4"><img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img13.jpg"></div>
           <div class="service-about">
             <h3>Full Repaint (Inside + Outside)</h3>
             <p>Pengecatan pada seluruh bagian sepatu dari bagian dalam hingga bagian luar.</p>
@@ -79,7 +79,7 @@
 
       <div class="col-md-6 mb-4">
         <div class="service d-flex h-100">
-          <div class="service-number mr-4"><span class="icon-magnet"></span></div>
+          <div class="service-number mr-4"><img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img13.jpg"></div>
           <div class="service-about">
             <h3>Half Repaint (Per Shoes Area)</h3>
             <p>Pengecatan pada bagian tertentu yang diinginkan customer antara 3: Upper Sole / Mid Sole / Out Sole.</p>
@@ -89,7 +89,7 @@
 
       <div class="col-md-6 mb-4">
         <div class="service d-flex h-100">
-          <div class="service-number mr-4"><span class="icon-magnet"></span></div>
+          <div class="service-number mr-4"><img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img15.jpg"></div>
           <div class="service-about">
             <h3>Unyellowing (MidSole + OutSole)</h3>
             <p>Unyellowing diberikan hanya pada bagian MidSole dan LowSole.</p>
@@ -197,45 +197,20 @@
       </div>
     </div>
     <div class="owl-carousel slide-one-item">
+    <?php foreach ($datarating->result_array() as $k) { ?>
       <div class="slide">
 
         <blockquote>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste sunt nobis modi, ducimus magnam sint? Soluta delectus mollitia, incidunt reprehenderit rerum tempore optio excepturi aut, error voluptatem laborum quae eum.</p>
-          <p><cite>&mdash; Graig Smith</cite></p>
+          <p><?= $k['testimoni'];?></p>
+          <p><cite>&mdash; <?php echo $k['first_name']; echo " "; echo $k['last_name'];?></cite></p>
         </blockquote>
 
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span>
+        <input readonly id="input-21b" id="rating" name="rating" value="<?= $k['rating']; ?>" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="lg" required title="">
 
 
       </div>
-      <div class="slide">
-        <blockquote>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, veniam, quos optio magnam aliquid est sequi cupiditate tempore libero excepturi nam laudantium consequuntur quia iste dolor fugit quas?</p>
-          <p><cite>&mdash; Carl Spencer</cite></p>
-        </blockquote>
+      <?php } ?>
 
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-      </div>
-      <div class="slide">
-        <blockquote>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum veniam officiis placeat tempore, voluptates quis, odit mollitia neque, quisquam sint temporibus in ullam delectus modi repudiandae expedita! Cupiditate aspernatur illum adipisci recusandae beatae ea impedit.</p>
-          <p><cite>&mdash; Ryan Peters</cite></p>
-        </blockquote>
-
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-      </div>
     </div>
   </div>
 </section>
@@ -283,6 +258,79 @@
     </div>
   </div>
 </section>
+<script>
+				jQuery(document).ready(function() {
+					$("#input-21f").rating({
+						starCaptions: function(val) {
+							if (val < 3) {
+								return val;
+							} else {
+								return 'high';
+							}
+						},
+						starCaptionClasses: function(val) {
+							if (val < 3) {
+								return 'label label-danger';
+							} else {
+								return 'label label-success';
+							}
+						},
+						hoverOnClear: false
+					});
+					var $inp = $('#rating-input');
+
+					$inp.rating({
+						min: 0,
+						max: 5,
+						step: 1,
+						size: 'lg',
+						showClear: false
+					});
+
+					$('#btn-rating-input').on('click', function() {
+						$inp.rating('refresh', {
+							showClear: true,
+							disabled: !$inp.attr('disabled')
+						});
+					});
+
+
+					$('.btn-danger').on('click', function() {
+						$("#kartik").rating('destroy');
+					});
+
+					$('.btn-success').on('click', function() {
+						$("#kartik").rating('create');
+					});
+
+					$inp.on('rating.change', function() {
+						alert($('#rating-input').val());
+					});
+
+
+					$('.rb-rating').rating({
+						'showCaption': true,
+						'stars': '3',
+						'min': '0',
+						'max': '3',
+						'step': '1',
+						'size': 'xs',
+						'starCaptions': {
+							0: 'status:nix',
+							1: 'status:wackelt',
+							2: 'status:geht',
+							3: 'status:laeuft'
+						}
+					});
+					$("#input-21c").rating({
+						min: 0,
+						max: 8,
+						step: 0.5,
+						size: "xl",
+						stars: "8"
+					});
+				});
+			</script>
 
 <footer class="site-section bg-light footer">
   <div class="container">

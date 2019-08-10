@@ -16,9 +16,28 @@ class Laporan extends CI_Controller
     function index()
     {
         $data['trans_bln'] = $this->mod_transaksi->get_bulan_trans();
-        $data['trans_thn'] = $this->mod_transaksi->get_tahun_trans();
+        $data['trans_staff'] = $this->mod_transaksi->get_staff_trans();
         $this->template->load('template/backend/dashboard', 'admin/v_laporan', $data);
     }
+
+    function lap_staff()
+    {
+        $id = $this->input->post('id_staff');
+        $bulan = $this->input->post('bln');
+        //$x['jml'] = $this->m_laporan->get_total_trans_perbulan($bulan);
+        $x['data'] = $this->m_laporan->admin_get_data_trans_staff($id,$bulan);
+        $this->load->view('admin/laporan/v_lap_order', $x);
+    }
+
+    function lap_order()
+    {
+        $bulan = $this->input->post('bln');
+        //$x['jml'] = $this->m_laporan->get_total_trans_perbulan($bulan);
+        $x['data'] = $this->m_laporan->admin_get_data_trans($bulan);
+        $this->load->view('admin/laporan/v_lap_order', $x);
+    }
+
+
     function lap_data_pelanggan()
     {
         $x['data'] = $this->m_laporan->get_data_pelanggan();

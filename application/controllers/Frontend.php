@@ -14,26 +14,8 @@ class Frontend extends CI_Controller
     public function index()
     {
         //$this->load->view('welcome_message');
-        $this->template->load('template/frontend/home', 'frontend/home');
+        $data['datarating'] = $this->fm->testimoni();
+        $this->template->load('template/frontend/home', 'frontend/home',$data);
     }
 
-    public function about()
-    {
-        $this->template->load('template/frontend/home', 'frontend/about');
-    }
-
-
-    public function detail()
-    {
-        $id_sekolah = $this->input->get('sekolah');
-        $data['sekolah'] = $this->fm->tampilkan_detail($id_sekolah)->row_array();
-        $data['kriteria'] = $this->fm->detail_kriteria($id_sekolah)->result();
-        $this->template->load('template/frontend/home', 'frontend/detail', $data);
-    }
-
-    public function galeri()
-    {
-        //$this->load->view('welcome_message');
-        $this->template->load('template/frontend/home', 'frontend/galeri');
-    }
 }

@@ -33,6 +33,14 @@ $aktif = $this->uri->segment(2);
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/rating.css">
 	<link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
+	<!-- RAITING -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link href="<?php echo base_url() ?>assets/vendor/rating/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
+	<!--suppress JSUnresolvedLibraryURL -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="<?php echo base_url() ?>assets/vendor/rating/js/star-rating.js" type="text/javascript"></script>
+	<!-- END RAITING -->
+
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">

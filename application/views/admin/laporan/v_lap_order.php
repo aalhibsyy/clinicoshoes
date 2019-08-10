@@ -19,7 +19,7 @@
             <tr>
                 <td colspan="2" style="width:800px;paddin-left:20px;">
                     <center>
-                        <h4>LAPORAN ORDER</h4>
+                        <h4>LAPORAN TRANSAKSI</h4>
                     </center><br />
                 </td>
             </tr>
@@ -37,7 +37,9 @@
             $urut = 0;
             $nomor = 0;
             $group = '-';
+            $total = 0;
             foreach ($data->result_array() as $d) {
+              
                 $nomor++;
                 $urut++;
                 if ($group == '-' || $group != $d['id_trans']) {
@@ -52,22 +54,24 @@
                     $nm_l = $t['last_name'];
                     $phone = $t['phone'];
                     if ($group != '-')
+                   
                         echo "</table><br>";
                     echo "<table align='center' width='800px;' border='1'>";
                     echo "<tr><td colspan='2'><b>ID Transaksi: $kat</b> &nbsp;&nbsp; <b>Nama : $nm_f $nm_l</b> &nbsp;&nbsp; <b>No Telp : $phone</b></td>
-                                <td style='text-align:center;'><b>Total Transaksi: $tots </b></td>
+                                <td colspan='2' style='text-align:center;'><b>Total Jasa : $tots</b></td>
                         </tr>";
                     echo "<tr style='background-color:#ccc;'>
-    <td width='4%' align='center'>No</td>
-    <td width='60%' align='center'>Servis</td>
-    <td width='30%' align='center'>Jumlah</td>
-    
-    </tr>";
+                    <td width='4%' align='center'>No</td>
+                    <td width='60%' align='center'>Servis</td>
+                    <td width='30%' align='center'>Jumlah</td>
+                    <td width='30%' align='center'>Harga</td>
+                    </tr>";
                     $nomor = 1;
                 }
                 $group = $d['id_trans'];
                 if ($urut == 500) {
                     $nomor = 0;
+                    $total = 0;
                     echo "<div class='pagebreak'> </div>";
                     //echo "<center><h2>KALENDER EVENTS PER TAHUN</h2></center>";
                 }
@@ -76,14 +80,25 @@
                     <td style="text-align:center;vertical-align:top;text-align:center;"><?php echo $nomor; ?></td>
                     <td style="vertical-align:top;padding-left:5px;"><?php echo $d['d_trans_jasa_nama']; ?></td>
                     <td style="vertical-align:top;text-align:center;"><?php echo $d['d_trans_qty']; ?></td>
+                    <td style="vertical-align:top;text-align:center;">Rp<?php echo number_format($d['d_trans_total'],2,',','.'); ?></td>
                 </tr>
-
-
+                <?php $total = $total + $d['d_trans_total']; ?>
+        
             <?php
             }
             ?>
         </table>
-
+        <br />
+        <table border="0" align="center" style="width:800px;border:none;">
+            <tr>
+                <th style="text-align:right">Total Pemasukan</th>
+            </tr>
+            <tr>
+                <td style="text-align:right">
+               <b> Rp.<?=number_format($total,2,',','.');?></b>
+                </td>
+            </tr>
+        </table>
 
     </div>
 </body>

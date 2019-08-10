@@ -69,6 +69,32 @@ class M_laporan extends CI_Model
 		return $hsl;
 	}
 
+	//========================== ADMIN ============================================
+	function admin_get_data_trans($bulan)
+	{
+		$id = $this->ion_auth->get_user_id();
+		$hsl = $this->db->query("SELECT *, a.id_transaksi AS id_trans,DATE_FORMAT(trans_tanggal,'%d %M %Y') AS trans_tanggal, DATE_FORMAT(trans_tanggal,'%M %Y') AS bulan
+								FROM transaksi a JOIN detail_transaksi b ON a.id_transaksi=b.id_transaksi
+								JOIN users c ON c.id=a.id_pelanggan
+								WHERE DATE_FORMAT(trans_tanggal,'%M %Y')='$bulan'
+								GROUP BY a.id_transaksi,b.d_trans_jasa_nama");
+		return $hsl;
+	}
+
+	function admin_get_data_trans_staff($id, $bulan)
+	{
+		$hsl = $this->db->query("SELECT *, a.id_transaksi AS id_trans,DATE_FORMAT(trans_tanggal,'%d %M %Y') AS trans_tanggal, DATE_FORMAT(trans_tanggal,'%M %Y') AS bulan
+								FROM transaksi a JOIN detail_transaksi b ON a.id_transaksi=b.id_transaksi
+								JOIN users c ON c.id=a.id_pelanggan
+								WHERE a.id_staff=$id AND DATE_FORMAT(trans_tanggal,'%M %Y')='$bulan'
+								GROUP BY a.id_transaksi,b.d_trans_jasa_nama");
+		return $hsl;
+	}
+
+	//========================== END ADMIN ============================================
+
+
+
 	//========================== STAFF ============================================
 	function staff_get_trans_perbulan($bulan)
 	{
