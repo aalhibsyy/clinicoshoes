@@ -33,6 +33,18 @@ class Pelanggan_model extends CI_Model
         //return $this->db->get($this->table)->result();
     }
 
+    function get_staff_limit()
+    {
+        $hsl = $this->db->query(" SELECT * FROM
+                    ( SELECT *, COUNT(*) AS jmltrans
+                        FROM users a JOIN transaksi b ON a.id=b.id_staff 
+                        WHERE DATE(trans_tanggal)=CURRENT_DATE 	GROUP BY id_staff
+                    ) as innerTable
+                WHERE jmltrans <= 5
+                ");
+        return $hsl->result();
+    }
+
     function get_user()
     {
         $this->db->select('*');

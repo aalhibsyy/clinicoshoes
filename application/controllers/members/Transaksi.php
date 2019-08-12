@@ -18,7 +18,7 @@ class Transaksi extends CI_Controller
     {
         $data['kode'] = $this->mod_transaksi->buat_kode();
         $data['jasa'] = $this->mod_jasa->tampil_jasa();
-        $data['pelanggan'] = $this->mod_pelanggan->get_all();
+        $data['pelanggan'] = $this->mod_pelanggan->get_staff_limit();
         $this->template->load('template/backend/dashboard', 'members/transaksi/transaksi_form', $data);
     }
     function get_barang()

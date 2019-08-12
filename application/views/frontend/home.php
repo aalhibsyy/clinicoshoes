@@ -1,22 +1,19 @@
-<div class="site-blocks-cover overlay bg-light" id="home-section">
+<div class="site-blocks-cover overlay bg-light bg-cover" id="home-section">
 
-  <div class="container">
+  <div class="container ">
     <div class="row justify-content-center">
 
-      <div class="col-md-12 mt-lg-5 text-left align-self-center text-intro">
+      <div class="col-md-12 mt-lg-5 text-left align-self-center text-intro ">
         <div class="row">
           <div class="col-lg-6">
-            <h1 class="text-white">Clinico Shoes</h1>
-            <p class="text-secondary">CUCI SEPATU <span class="mx-3">|</span> REPAINT</p>
-            <p><a href="https://bit.ly/2IxtUKL" target="_blank" class="btn smoothscroll btn-primary">Contact Me</a></p>
           </div>
         </div>
       </div>
+      <p><a href="https://bit.ly/2IxtUKL" target="_blank" class="btn smoothscroll btn-primary">Contact Me</a></p>
 
     </div>
   </div>
 
-  <img src="<?php echo base_url(); ?>assets/img/img3.jpg" alt="Image" class="img-face">
 
 </div>
 
@@ -168,17 +165,17 @@
         </a>
       </div>
       <div class="col-md-6 col-lg-4 item">
-        <a href="<?php echo base_url(); ?>assets/img/img8.png" class="item-wrap fancybox mb-4">
+        <a href="<?php echo base_url(); ?>assets/img/img19.jpg" class="item-wrap fancybox mb-4">
           <span class="icon-search2"></span>
-          <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img8.png">
+          <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img19.jpg">
         </a>
-        <a href="<?php echo base_url(); ?>assets/img/img9.jpg" class="item-wrap fancybox mb-4">
+        <a href="<?php echo base_url(); ?>assets/img/img20.jpg" class="item-wrap fancybox mb-4">
           <span class="icon-search2"></span>
-          <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img9.jpg">
+          <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img20.jpg">
         </a>
-        <a href="<?php echo base_url(); ?>assets/img/img10.jpg" class="item-wrap fancybox mb-4">
+        <a href="<?php echo base_url(); ?>assets/img/img21.jpg" class="item-wrap fancybox mb-4">
           <span class="icon-search2"></span>
-          <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img10.jpg">
+          <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img21.jpg">
         </a>
       </div>
     </div>
@@ -197,18 +194,20 @@
       </div>
     </div>
     <div class="owl-carousel slide-one-item">
-    <?php foreach ($datarating->result_array() as $k) { ?>
-      <div class="slide">
+      <?php foreach ($datarating->result_array() as $k) { ?>
+        <div class="slide">
 
-        <blockquote>
-          <p><?= $k['testimoni'];?></p>
-          <p><cite>&mdash; <?php echo $k['first_name']; echo " "; echo $k['last_name'];?></cite></p>
-        </blockquote>
+          <blockquote>
+            <p><?= $k['testimoni']; ?></p>
+            <p><cite>&mdash; <?php echo $k['first_name'];
+                              echo " ";
+                              echo $k['last_name']; ?></cite></p>
+          </blockquote>
 
-        <input readonly id="input-21b" id="rating" name="rating" value="<?= $k['rating']; ?>" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="lg" required title="">
+          <input readonly id="input-21b" id="rating" name="rating" value="<?= $k['rating']; ?>" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="lg" required title="">
 
 
-      </div>
+        </div>
       <?php } ?>
 
     </div>
@@ -259,78 +258,78 @@
   </div>
 </section>
 <script>
-				jQuery(document).ready(function() {
-					$("#input-21f").rating({
-						starCaptions: function(val) {
-							if (val < 3) {
-								return val;
-							} else {
-								return 'high';
-							}
-						},
-						starCaptionClasses: function(val) {
-							if (val < 3) {
-								return 'label label-danger';
-							} else {
-								return 'label label-success';
-							}
-						},
-						hoverOnClear: false
-					});
-					var $inp = $('#rating-input');
+  jQuery(document).ready(function() {
+    $("#input-21f").rating({
+      starCaptions: function(val) {
+        if (val < 3) {
+          return val;
+        } else {
+          return 'high';
+        }
+      },
+      starCaptionClasses: function(val) {
+        if (val < 3) {
+          return 'label label-danger';
+        } else {
+          return 'label label-success';
+        }
+      },
+      hoverOnClear: false
+    });
+    var $inp = $('#rating-input');
 
-					$inp.rating({
-						min: 0,
-						max: 5,
-						step: 1,
-						size: 'lg',
-						showClear: false
-					});
+    $inp.rating({
+      min: 0,
+      max: 5,
+      step: 1,
+      size: 'lg',
+      showClear: false
+    });
 
-					$('#btn-rating-input').on('click', function() {
-						$inp.rating('refresh', {
-							showClear: true,
-							disabled: !$inp.attr('disabled')
-						});
-					});
-
-
-					$('.btn-danger').on('click', function() {
-						$("#kartik").rating('destroy');
-					});
-
-					$('.btn-success').on('click', function() {
-						$("#kartik").rating('create');
-					});
-
-					$inp.on('rating.change', function() {
-						alert($('#rating-input').val());
-					});
+    $('#btn-rating-input').on('click', function() {
+      $inp.rating('refresh', {
+        showClear: true,
+        disabled: !$inp.attr('disabled')
+      });
+    });
 
 
-					$('.rb-rating').rating({
-						'showCaption': true,
-						'stars': '3',
-						'min': '0',
-						'max': '3',
-						'step': '1',
-						'size': 'xs',
-						'starCaptions': {
-							0: 'status:nix',
-							1: 'status:wackelt',
-							2: 'status:geht',
-							3: 'status:laeuft'
-						}
-					});
-					$("#input-21c").rating({
-						min: 0,
-						max: 8,
-						step: 0.5,
-						size: "xl",
-						stars: "8"
-					});
-				});
-			</script>
+    $('.btn-danger').on('click', function() {
+      $("#kartik").rating('destroy');
+    });
+
+    $('.btn-success').on('click', function() {
+      $("#kartik").rating('create');
+    });
+
+    $inp.on('rating.change', function() {
+      alert($('#rating-input').val());
+    });
+
+
+    $('.rb-rating').rating({
+      'showCaption': true,
+      'stars': '3',
+      'min': '0',
+      'max': '3',
+      'step': '1',
+      'size': 'xs',
+      'starCaptions': {
+        0: 'status:nix',
+        1: 'status:wackelt',
+        2: 'status:geht',
+        3: 'status:laeuft'
+      }
+    });
+    $("#input-21c").rating({
+      min: 0,
+      max: 8,
+      step: 0.5,
+      size: "xl",
+      stars: "8"
+    });
+  });
+</script>
 
 <footer class="site-section bg-light footer">
   <div class="container">
