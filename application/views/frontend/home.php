@@ -137,23 +137,23 @@
 
     <div class="row">
       <div class="col-md-6 col-lg-4 item">
-        <a href="<?php echo base_url(); ?>assets/img/img1.jpg" class="item-wrap fancybox mb-4">
-          <span class="icon-search2"></span>
-          <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img1.jpg">
-        </a>
-        <a href="<?php echo base_url(); ?>assets/img/img2.jpg" class="item-wrap fancybox mb-4">
-          <span class="icon-search2"></span>
-          <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img2.jpg">
-        </a>
         <a href="<?php echo base_url(); ?>assets/img/img3.jpg" class="item-wrap fancybox mb-4">
           <span class="icon-search2"></span>
           <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img3.jpg">
         </a>
+        <a href="<?php echo base_url(); ?>assets/img/img1.jpg" class="item-wrap fancybox mb-4">
+          <span class="icon-search2"></span>
+          <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img1.jpg">
+        </a>
+        <a href="<?php echo base_url(); ?>assets/img/img20.jpg" class="item-wrap fancybox mb-4">
+          <span class="icon-search2"></span>
+          <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img20.jpg">
+        </a>
       </div>
       <div class="col-md-6 col-lg-4 item">
-        <a href="<?php echo base_url(); ?>assets/img/img4.jpg" class="item-wrap fancybox mb-4">
+        <a href="<?php echo base_url(); ?>assets/img/img19.jpg" class="item-wrap fancybox mb-4">
           <span class="icon-search2"></span>
-          <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img4.jpg">
+          <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img19.jpg">
         </a>
         <a href="<?php echo base_url(); ?>assets/img/img5.jpg" class="item-wrap fancybox mb-4">
           <span class="icon-search2"></span>
@@ -165,14 +165,15 @@
         </a>
       </div>
       <div class="col-md-6 col-lg-4 item">
-        <a href="<?php echo base_url(); ?>assets/img/img19.jpg" class="item-wrap fancybox mb-4">
+        <a href="<?php echo base_url(); ?>assets/img/img4.jpg" class="item-wrap fancybox mb-4">
           <span class="icon-search2"></span>
-          <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img19.jpg">
+          <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img4.jpg">
         </a>
-        <a href="<?php echo base_url(); ?>assets/img/img20.jpg" class="item-wrap fancybox mb-4">
+        <a href="<?php echo base_url(); ?>assets/img/img2.jpg" class="item-wrap fancybox mb-4">
           <span class="icon-search2"></span>
-          <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img20.jpg">
+          <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img2.jpg">
         </a>
+
         <a href="<?php echo base_url(); ?>assets/img/img21.jpg" class="item-wrap fancybox mb-4">
           <span class="icon-search2"></span>
           <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/img21.jpg">
@@ -231,29 +232,37 @@
         <strong class="text-black">Phone : 08111735404</strong>
         <br />
         <br />
-        <p>Business Hours (WIB)
-          <br />
-          Mon 09:00 am - 09:00 pm
-          <br />
-          Tue 09:00 am - 09:00 pm
-          <br />
-          Wed
-          09:00 am - 09:00 pm
-          <br />
-          Thu
-          09:00 am - 09:00 pm
-          <br />
-          Fri
-          09:00 am - 09:00 pm
-          <br />
-          Sat
-          Closed
-          <br />
-          Sun
-          Closed</p>
-
+        <table>
+          <tr>
+            <td>Mon</td>
+            <td> : 09:00 am - 09:00 pm</td>
+          </tr>
+          <tr>
+            <td>Tue</td>
+            <td> : 09:00 am - 09:00 pm</td>
+          </tr>
+          <tr>
+            <td>Wed</td>
+            <td> : 09:00 am - 09:00 pm</td>
+          </tr>
+          <tr>
+            <td>Thu</td>
+            <td> : 09:00 am - 09:00 pm</td>
+          </tr>
+          <tr>
+            <td>Fri</td>
+            <td> : 09:00 am - 09:00 pm</td>
+          </tr>
+          <tr>
+            <td>Sat</td>
+            <td> : Closed</td>
+          </tr>
+          <tr>
+            <td>Sun</td>
+            <td> : Closed</td>
+          </tr>
+        </table>
       </div>
-
     </div>
   </div>
 </section>
@@ -331,11 +340,14 @@
   });
 </script>
 
-<footer class="site-section bg-light footer">
+<footer class="bg-light footer">
+  <br />
   <div class="container">
-
-    <h3 class="footer-title">Follow Me</h3>
-    <a href="https://bit.ly/2IxtUKL" class="social-circle p-2"><span class="icon-whatsapp"></span></a>
-    <a href="https://www.instagram.com/clinicoshoes/" class="social-circle p-2"><span class="icon-instagram"></span></a>
-    <a href="https://twitter.com/hashtag/clinicoshoes" class="social-circle p-2"><span class="icon-twitter"></span></a>
+    <center>
+      <h3 class="footer-title">Follow Me</h3>
+      <a href="https://bit.ly/2IxtUKL" class="social-circle p-2"><span class="icon-whatsapp"></span></a>
+      <a href="https://www.instagram.com/clinicoshoes/" class="social-circle p-2"><span class="icon-instagram"></span></a>
+      <a href="https://twitter.com/hashtag/clinicoshoes" class="social-circle p-2"><span class="icon-twitter"></span></a>
+    </center>
   </div>
+  <br />
