@@ -159,6 +159,7 @@ class Transaksi_model extends CI_Model
     public function staff_jumlah()
     {
         $this->db->where('id_staff', $this->ion_auth->get_user_id());
+        $this->db->group_by('id_pelanggan');
         return $this->db->get($this->table);
     }
     //================ END Dashboard =======================================================

@@ -57,12 +57,4 @@
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-6 text-right">
-            <?php echo $pagination ?>
-        </div>
-    </div>
-
-
 </div>
